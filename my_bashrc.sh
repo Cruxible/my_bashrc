@@ -2,12 +2,13 @@
 
 #find the ps line matching this and copy and replace
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[01;34m\]  _\w\[\033[00m\]\n (__\u@\h\[\033[00m\]: '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]  _\w\[\033[01;31m\]\n (__\[\033[01;35m\]\u@\h\[\033[00m\]:\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\n\w\$'
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$'
 fi
 
 #functions can be replaced to fit your needs
+
 function start_shell_or_venv() {
     if [ -d ~/bin ]
     then
@@ -26,3 +27,4 @@ function start_shell_or_venv() {
 }
 
 start_shell_or_venv
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
